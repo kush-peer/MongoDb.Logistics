@@ -144,7 +144,8 @@ namespace MongoDb.Logistics.Database.Repositories
 				// Keep a copy of last landed city
 				var lastLandedCity = latestPlane.Landed;
 
-				if (!lastLandedCity.ToLower().Equals(landedCity.ToLower()))
+				if (!string.IsNullOrEmpty(lastLandedCity)
+					&& !lastLandedCity.ToLower().Equals(landedCity.ToLower()))
 				{
 					// Keep a copy of last date time stamp
 					var previousDateTimeStamp = latestPlane.CurrentDateTimeStamp;
